@@ -74,7 +74,7 @@ final class Router
 	private function registerControllers(): void
 	{
 		$routes = [];
-		$directory = BASE_PATH . "/src/Http/Controller";
+		$directory = BASE_PATH . "/src/Http/Controllers";
 
 		foreach (scandir($directory) as $file)
 		{
@@ -83,7 +83,7 @@ final class Router
 				continue ;
 			}
 
-			$classname = "App\\Http\\Controller\\" . pathinfo($file, PATHINFO_FILENAME);
+			$classname = "App\\Http\\Controllers\\" . pathinfo($file, PATHINFO_FILENAME);
 			$reflection = new \ReflectionClass($classname);
 
 			foreach ($reflection->getMethods() as $method)
