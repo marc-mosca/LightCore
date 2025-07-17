@@ -30,28 +30,28 @@ class Request
 	 * @var array $queryParameters Query parameters parsed from the URL (i.e., $_GET).
 	 */
 	public array $queryParameters = []
-		{
-			get => $this->queryParameters;
-			set => array_merge($this->queryParameters, $value);
-		}
+	{
+		get => $this->queryParameters;
+		set => array_merge($this->queryParameters, $value);
+	}
 
 	/**
 	 * @var array $body POST data (i.e., $_POST).
 	 */
 	public array $body = []
-		{
-			get => $this->body;
-			set => array_merge($this->body, $value);
-		}
+	{
+		get => $this->body;
+		set => array_merge($this->body, $value);
+	}
 
 	/**
 	 * @var array $server Server and execution environment information (i.e., $_SERVER).
 	 */
 	public array $server = []
-		{
-			get => $this->server;
-			set => array_merge($this->server, $value);
-		}
+	{
+		get => $this->server;
+		set => array_merge($this->server, $value);
+	}
 
 	/**
 	 * Constructs a new Request object and populates it from global variables.
