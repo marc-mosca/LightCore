@@ -10,7 +10,7 @@ use App\Attributes\Route;
  * This class scans controller classes for `Route` attributes, compiles route patterns, stores them,
  * and matches incoming requests against the registered routes.
  */
-class Router
+final class Router
 {
 
 	/**

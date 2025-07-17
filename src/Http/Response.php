@@ -7,7 +7,7 @@ namespace App\Http;
  *
  * This class define the response content, HTTP status code, and headers to be sent to the client.
  */
-class Response
+final class Response
 {
 
 	/**

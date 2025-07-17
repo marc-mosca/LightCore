@@ -8,7 +8,7 @@ namespace App\Http;
  * This class captures key information from the global PHP request environment, such as the request method, URI, path,
  * query parameters, POST data, and server variables.
  */
-class Request
+final class Request
 {
 
 	/**
