@@ -77,8 +77,8 @@ final class TemplateEngine
 	 */
 	private function parse(string $template): string
 	{
-		$template = $this->parseIncludeBlock($template);
-		return $this->parseExtendsBlock($template);
+		$template = $this->parseExtendsBlock($template);
+		return $this->parseIncludeBlock($template);
 	}
 
 	/**

@@ -39,11 +39,12 @@ final class Router
 	 * If a match is found, the corresponding controller method is invoked.
 	 * Otherwise, a 404 HTTP status code is returned.
 	 *
-	 * @param Request $request The current HTTP request.
 	 * @return void
 	 */
-	public function dispatch(Request $request): void
+	public function dispatch(): void
 	{
+		$request = new Request();
+
 		foreach ($this->routes as $route)
 		{
 			if (in_array($request->method, $route["methods"]) === false)
