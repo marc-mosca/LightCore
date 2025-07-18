@@ -40,10 +40,8 @@ abstract class AbstractController
 	 */
 	public function render(string $template, array $params = []): Response
 	{
-		$content = $this->templateEngine->render($template, $params);
-		$response = new Response($content, Response::HTTP_OK, ['Content-Type' => 'text/html']);
-		$response->send();
-		return $response;
+		$html = $this->templateEngine->render($template, $params);
+		return $this->response($html, ["Content-Type" => "text/html"]);
 	}
 
 	/**
@@ -56,7 +54,20 @@ abstract class AbstractController
 	public function json(array $data): Response
 	{
 		$json = json_encode($data, JSON_PRETTY_PRINT);
-		$response = new Response($json, Response::HTTP_OK, ['Content-Type' => 'application/json']);
+		return $this->response($json, ["Content-Type" => "application/json"]);
+	}
+
+	/**
+	 * Creates and sends an HTTP response with the given content and headers.
+	 *
+	 * @param string $content The response body content.
+	 * @param array  $headers Optional associative array of HTTP headers.
+	 *
+	 * @return Response The HTTP response object after sending the content.
+	 */
+	private function response(string $content, array $headers = []): Response
+	{
+		$response = new Response($content, Response::HTTP_OK, $headers);
 		$response->send();
 		return $response;
 	}
